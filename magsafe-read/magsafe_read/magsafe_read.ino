@@ -21,11 +21,12 @@ void loop(void) {
   net.read_bytes(addr, 8);
   if (addr[0] == 0x00 || addr[0] == 0xff) {
     // No device present
-    return;
+    //return;
   }
   for (int8_t i = 7; i >= 0; i--) {
     Serial.print(addr[i]>>4, HEX);
     Serial.print(addr[i]&0x0f, HEX);
   }
   Serial.println();
+  delay(1000);
 }
